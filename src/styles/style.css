@@ -4,11 +4,13 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
-  -moz-appearance:textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   border: 0;
@@ -16,7 +18,8 @@ input[type=number] {
 }
 
 .page {
-  font-family: "Roboto", "Open Sans", "Noto Sans", "Arial", "Tahoma", "Verdana", sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Noto Sans', 'Arial', 'Tahoma', 'Verdana',
+    sans-serif;
 }
 
 body {
@@ -43,8 +46,12 @@ body {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .error {
@@ -80,7 +87,7 @@ body {
   padding: 0.5rem 1rem;
   width: 100%;
   outline: none;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .input::placeholder {
@@ -104,7 +111,7 @@ body {
 .add-btn {
   display: block;
   margin: 0 auto;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #4fc152;
   color: #ffffff;
   padding: 0.5rem 1.2rem;

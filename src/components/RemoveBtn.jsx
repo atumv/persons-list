@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RemoveBtn = ({onClick}) => (
+const RemoveBtn = ({ onClick }) => (
   <button className="remove-btn" onClick={onClick}>
     &times;
   </button>

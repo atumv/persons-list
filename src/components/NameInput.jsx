@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NameInput = ({nameInputRef}) => (
+const NameInput = ({ nameInputRef }) => (
   <input
     className="input name-input"
     type="text"

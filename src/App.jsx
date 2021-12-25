@@ -30,15 +30,15 @@ const App = () => {
       variables: {
         id: Date.now(),
         name: nameInputRef.current.value,
-        age: +ageInputRef.current.value
-      }
+        age: +ageInputRef.current.value,
+      },
     });
     nameInputRef.current.value = '';
     ageInputRef.current.value = '';
   };
-  
+
   const removePerson = (e) => {
-    deletePerson({variables: { id: e.target.parentNode.id } });
+    deletePerson({ variables: { id: e.target.parentNode.id } });
   };
 
   const returnFocusToName = () => {
