@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      {!loading && <PersonsList data={data} />}
+      <PersonsList data={data} />
       <Form
         onSubmit={addPerson}
         nameInputRef={nameInputRef}
