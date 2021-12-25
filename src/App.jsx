@@ -17,10 +17,10 @@ const App = () => {
   const ageInputRef = useRef();
 
   const { loading, error, data } = useQuery(GET_PERSONS);
-  const [addNewPerson, { data: personData }] = useMutation(ADD_PERSON, {
+  const [addNewPerson] = useMutation(ADD_PERSON, {
     refetchQueries: [GET_PERSONS, 'getPersons'],
   });
-  const [deletePerson, { data: newData }] = useMutation(DELETE_PERSON, {
+  const [deletePerson] = useMutation(DELETE_PERSON, {
     refetchQueries: [GET_PERSONS, 'getPersons'],
   });
 
