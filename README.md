@@ -9,6 +9,8 @@ A simple react list application, built with following packages:
 
 ## Start shortcut
 
+You can start the app easily with the next shortcut:
+
 ```sh
 git clone https://github.com/atumv/persons-list.git && cd persons-list && npm i && npm run start
 ```
