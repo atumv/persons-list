@@ -8,7 +8,7 @@ import Form from './components/Form';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_PERSONS } from './graphql/queries';
-import { ADD_PERSON } from './graphql/mutations';
+import { ADD_PERSON, DELETE_PERSON } from './graphql/mutations';
 
 import './styles/style.css';
 
@@ -20,6 +20,9 @@ const App = () => {
   const [addNewPerson, { data: personData }] = useMutation(ADD_PERSON, {
     refetchQueries: [GET_PERSONS, 'getPersons'],
   });
+  const [deletePerson, { data: newData }] = useMutation(DELETE_PERSON, {
+    refetchQueries: [GET_PERSONS, 'getPersons'],
+  });
 
   const addPerson = (e) => {
     e.preventDefault();
@@ -27,11 +30,15 @@ const App = () => {
       variables: {
         id: Date.now(),
         name: nameInputRef.current.value,
-        age: +ageInputRef.current.value,
-      },
+        age: +ageInputRef.current.value
+      }
     });
     nameInputRef.current.value = '';
     ageInputRef.current.value = '';
+  };
+  
+  const removePerson = (e) => {
+    deletePerson({variables: { id: e.target.parentNode.id } });
   };
 
   const returnFocusToName = () => {
@@ -44,7 +51,7 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <PersonsList data={data} />
+      <PersonsList data={data} removePerson={removePerson} />
       <Form
         onSubmit={addPerson}
         nameInputRef={nameInputRef}

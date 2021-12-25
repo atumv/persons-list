@@ -127,3 +127,9 @@ body {
 .person {
   list-style-type: none;
 }
+
+.remove-btn {
+  background: transparent;
+  cursor: pointer;
+  margin-left: 0.2rem;
+}

@@ -14,6 +14,12 @@ const resolvers = {
       const person = { id, name, age };
       persons.push(person);
       return person;
+    },
+    deletePerson: (parent, { id }, context, info) => {
+      const personIdx = persons.findIndex(person => person.id == id);
+      if (personIdx === -1) throw new Error("Person not found.");
+      const deletedPersons = persons.splice(personIdx, 1);
+      return deletedPersons[0];
     }
   }
 };
