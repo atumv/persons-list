@@ -1,7 +1,3 @@
-# Persons List
-
-This is a simple react list application.
-
 ## Packages used:
 
 - [`react`](https://www.npmjs.com/package/react)
