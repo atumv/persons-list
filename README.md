@@ -7,7 +7,7 @@ A simple react list application, built with following packages:
 - [`@apollo/client`](https://www.npmjs.com/package/@apollo/client)
 - [`apollo-server`](https://www.npmjs.com/package/apollo-server)
 
-## Start shortcut
+## Running
 
 You can start the app easily with the next shortcut:
 
