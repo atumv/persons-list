@@ -1,4 +1,6 @@
-## Packages used:
+# Persons List
+
+A simple react list application, built with following packages:
 
 - [`react`](https://www.npmjs.com/package/react)
 - [`graphql`](https://www.npmjs.com/package/graphql)
