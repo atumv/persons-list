@@ -15,9 +15,6 @@ input[type='number'] {
   padding: 0;
   border: 0;
   box-sizing: border-box;
-}
-
-.page {
   font-family: 'Roboto', 'Open Sans', 'Noto Sans', 'Arial', 'Tahoma', 'Verdana',
     sans-serif;
 }
@@ -36,15 +33,6 @@ body {
   align-items: center;
 }
 
-.spinner {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border-top: 3px solid #6495ed;
-  border-left: 3px solid #6495ed;
-  animation: spin 0.2s linear infinite;
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -52,6 +40,15 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-top: 3px solid #6495ed;
+  border-left: 3px solid #6495ed;
+  animation: spin 0.2s linear infinite;
 }
 
 .error {
@@ -67,6 +64,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 0 1rem;
 }
@@ -76,19 +74,16 @@ body {
 }
 
 .form {
-  margin: 0 auto;
   max-width: 200px;
 }
 
 .input {
-  display: block;
-  margin: 0 auto;
   text-align: center;
   border: 1px solid #cccccc;
+  background: #ffffff;
   padding: 0.5rem 1rem;
   width: 100%;
   outline: none;
-  font-family: 'Roboto', sans-serif;
 }
 
 .input::placeholder {
@@ -110,9 +105,6 @@ body {
 }
 
 .add-btn {
-  display: block;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
   background: #4fc152;
   color: #ffffff;
   padding: 0.5rem 1.2rem;
