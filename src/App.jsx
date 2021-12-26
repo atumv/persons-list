@@ -15,30 +15,31 @@ import './styles/style.css';
 const App = () => {
   const nameInputRef = useRef();
   const ageInputRef = useRef();
+  const inputs = [nameInputRef, ageInputRef];
+
+  const mutationOptions = { refetchQueries: [GET_PERSONS, 'getPersons'] };
 
   const { loading, error, data } = useQuery(GET_PERSONS);
-  const [addNewPerson] = useMutation(ADD_PERSON, {
-    refetchQueries: [GET_PERSONS, 'getPersons'],
-  });
-  const [deletePerson] = useMutation(DELETE_PERSON, {
-    refetchQueries: [GET_PERSONS, 'getPersons'],
-  });
+  const [addNewPerson] = useMutation(ADD_PERSON, mutationOptions);
+  const [deletePerson] = useMutation(DELETE_PERSON, mutationOptions);
 
   const addPerson = (e) => {
-    e.preventDefault();
-    addNewPerson({
+    const addNewPersonOptions = {
       variables: {
         id: Date.now(),
         name: nameInputRef.current.value,
         age: +ageInputRef.current.value,
       },
-    });
-    nameInputRef.current.value = '';
-    ageInputRef.current.value = '';
+    };
+
+    e.preventDefault();
+    addNewPerson(addNewPersonOptions);
+    inputs.forEach((input) => (input.current.value = ''));
   };
 
   const removePerson = (e) => {
-    deletePerson({ variables: { id: e.target.parentNode.id } });
+    const deletePersonOptions = { variables: { id: e.target.parentNode.id } };
+    deletePerson(deletePersonOptions);
   };
 
   const returnFocusToName = () => {
