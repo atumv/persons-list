@@ -35,15 +35,12 @@ const App = () => {
     e.preventDefault();
     addNewPerson(addNewPersonOptions);
     inputs.forEach((input) => (input.current.value = ''));
+    nameInputRef.current.focus();
   };
 
   const removePerson = (e) => {
     const deletePersonOptions = { variables: { id: e.target.parentNode.id } };
     deletePerson(deletePersonOptions);
-  };
-
-  const returnFocusToName = () => {
-    nameInputRef.current.focus();
   };
 
   if (loading) return <Spinner />;
@@ -57,7 +54,6 @@ const App = () => {
         onSubmit={addPerson}
         nameInputRef={nameInputRef}
         ageInputRef={ageInputRef}
-        returnFocusToName={returnFocusToName}
       />
     </div>
   );

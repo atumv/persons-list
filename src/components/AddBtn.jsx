@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AddBtn = ({ onClick }) => (
-  <button className="add-btn" type="submit" onClick={onClick}>
+const AddBtn = () => (
+  <button className="add-btn" type="submit">
     Add
   </button>
 );
