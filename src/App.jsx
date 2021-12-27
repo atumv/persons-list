@@ -1,15 +1,12 @@
 import React, { useRef } from 'react';
-
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_PERSONS } from './graphql/queries';
+import { ADD_PERSON, DELETE_PERSON } from './graphql/mutations';
 import Spinner from './components/Spinner';
 import ErrorMsg from './components/ErrorMsg';
 import Header from './components/Header';
 import PersonsList from './components/PersonsList';
 import Form from './components/Form';
-
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_PERSONS } from './graphql/queries';
-import { ADD_PERSON, DELETE_PERSON } from './graphql/mutations';
-
 import './styles/style.css';
 
 const App = () => {
@@ -24,23 +21,20 @@ const App = () => {
   const [deletePerson] = useMutation(DELETE_PERSON, mutationOptions);
 
   const addPerson = (e) => {
-    const addNewPersonOptions = {
+    e.preventDefault();
+    addNewPerson({
       variables: {
         id: Date.now(),
         name: nameInputRef.current.value,
         age: +ageInputRef.current.value,
       },
-    };
-
-    e.preventDefault();
-    addNewPerson(addNewPersonOptions);
+    });
     inputs.forEach((input) => (input.current.value = ''));
     nameInputRef.current.focus();
   };
 
   const removePerson = (e) => {
-    const deletePersonOptions = { variables: { id: e.target.parentNode.id } };
-    deletePerson(deletePersonOptions);
+    deletePerson({ variables: { id: e.target.parentNode.id } });
   };
 
   if (loading) return <Spinner />;
