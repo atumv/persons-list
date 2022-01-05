@@ -24,9 +24,11 @@ const App = () => {
     e.preventDefault();
     addNewPerson({
       variables: {
-        id: Date.now(),
-        name: nameInputRef.current.value,
-        age: +ageInputRef.current.value,
+        input: {
+          id: Date.now(),
+          name: nameInputRef.current.value,
+          age: +ageInputRef.current.value,
+        },
       },
     });
     inputs.forEach((input) => (input.current.value = ''));

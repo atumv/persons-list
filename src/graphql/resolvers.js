@@ -7,10 +7,10 @@ const resolvers = {
     },
   },
   Mutation: {
-    addPerson: (parent, { id, name, age }, context, info) => {
-      const person = { id, name, age };
-      persons.push(person);
-      return person;
+    addPerson: (parent, { input }, context, info) => {
+      const newPerson = { id: input.id, name: input.name, age: input.age };
+      persons.push(newPerson);
+      return newPerson;
     },
     deletePerson: (parent, { id }, context, info) => {
       const personIdx = persons.findIndex((person) => person.id == id);

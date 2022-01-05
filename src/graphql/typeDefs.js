@@ -7,13 +7,19 @@ const typeDefs = gql`
     age: Int!
   }
 
+  input PersonInput {
+    id: ID!
+    name: String!
+    age: Int!
+  }
+
   type Query {
     getPerson(id: ID!): Person!
     getPersons: [Person!]!
   }
 
   type Mutation {
-    addPerson(id: ID!, name: String!, age: Int): Person!
+    addPerson(input: PersonInput): Person!
     deletePerson(id: ID!): Person!
   }
 `;
