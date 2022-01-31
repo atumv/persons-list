@@ -1,5 +1,7 @@
 # Persons List
 
+![example](/public/example.gif)
+
 A simple list application, built with following packages:
 
 - [`react`](https://www.npmjs.com/package/react)
